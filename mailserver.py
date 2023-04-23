@@ -3,6 +3,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+import mailbody
+from mailbody import subject,body
+
    
 fromaddr = "Mohitsoni004488@gmail.com"
 toaddr = "Mohitsonims04@gmail.com"
@@ -13,17 +16,17 @@ msg['From'] = fromaddr
 msg['To'] = toaddr
   
 # storing the subject 
-msg['Subject'] = "Prabhu Kripa"
+msg['Subject'] = subject
   
 # string to store the body of the mail
-body = "Prabhu Kripa"
+body = body
   
 # attach the body with the msg instance
 msg.attach(MIMEText(body, 'plain'))
   
 # open the file to be sent 
 filename = "Mohit_soni_resume.pdf"
-attachment = open("mail_server/mohit_soni_resume.pdf", "rb")
+attachment = open("./mohit_soni_resume.pdf", "rb")
   
 # instance of MIMEBase and named as p
 p = MIMEBase('application', 'octet-stream')
