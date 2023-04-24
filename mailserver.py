@@ -4,11 +4,12 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 import mailbody
-from mailbody import subject,body
+from mailbody import subject, body, set_attachment
 
    
-fromaddr = "Mohitsoni004488@gmail.com"
+fromaddr = ""
 toaddr = "Mohitsonims04@gmail.com"
+
    
 
 msg = MIMEMultipart()
@@ -19,7 +20,7 @@ msg['To'] = toaddr
 msg['Subject'] = subject
   
 # string to store the body of the mail
-body = body
+body = "Prabhu Kripa"
   
 # attach the body with the msg instance
 msg.attach(MIMEText(body, 'plain'))
@@ -34,12 +35,12 @@ p = MIMEBase('application', 'octet-stream')
 # To change the payload into encoded form
 p.set_payload((attachment).read())
   
-
 encoders.encode_base64(p)
    
 p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-  
-msg.attach(p)
+
+if set_attachment:
+  msg.attach(p)
   
 
 s = smtplib.SMTP('smtp.gmail.com', 587)
@@ -47,10 +48,11 @@ s = smtplib.SMTP('smtp.gmail.com', 587)
 
 s.starttls()
   
-s.login(fromaddr, "yppfczkynkkmqghv")
+s.login(fromaddr, "")
   
 text = msg.as_string()
   
 s.sendmail(fromaddr, toaddr, text)
+print("sent")
 
 s.quit()

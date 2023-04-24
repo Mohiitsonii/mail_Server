@@ -1,4 +1,9 @@
 #enter the subject of mail here
-subject="This is Subject of mail"
+subject="Google crack karo #motivation"
 
-body="This is body of mail"
+#Enter the body of mail here 
+
+body="Google crack karo #motivation"
+
+#Want to send attacment
+set_attachment=False
