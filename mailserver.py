@@ -14,7 +14,7 @@ openai_enabled = True
 
 if openai_enabled:
     import openai
-    openai.api_key = "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"
+    openai.api_key = ""
     from openai import generate_email_body
 else:
     from mailbody import body as email_body
@@ -43,7 +43,7 @@ if set_attachment:
 
 s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls()
-s.login(fromaddr, "cnmbmrwricnidylb")
+s.login(fromaddr, "")
 
 text = msg.as_string()
 
